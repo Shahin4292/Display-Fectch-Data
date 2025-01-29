@@ -1,3 +1,3 @@
 class AppUrl {
-  static const String baseUrl = "https://jsonplaceholder.typicode.com/photos";
+  static const String baseUrl = "https://jsonplaceholder.typicode.com/posts";
 }

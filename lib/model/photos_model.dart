@@ -1,27 +1,24 @@
-class PhotosModel {
-  int? albumId;
+class PostModel {
+  int? userId;
   int? id;
   String? title;
-  String? url;
-  String? thumbnailUrl;
+  String? body;
 
-  PhotosModel({this.albumId, this.id, this.title, this.url, this.thumbnailUrl});
+  PostModel({this.userId, this.id, this.title, this.body});
 
-  PhotosModel.fromJson(Map<String, dynamic> json) {
-    albumId = json['albumId'];
+  PostModel.fromJson(Map<String, dynamic> json) {
+    userId = json['userId'];
     id = json['id'];
     title = json['title'];
-    url = json['url'];
-    thumbnailUrl = json['thumbnailUrl'];
+    body = json['body'];
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['albumId'] = this.albumId;
+    data['userId'] = this.userId;
     data['id'] = this.id;
     data['title'] = this.title;
-    data['url'] = this.url;
-    data['thumbnailUrl'] = this.thumbnailUrl;
+    data['body'] = this.body;
     return data;
   }
 }

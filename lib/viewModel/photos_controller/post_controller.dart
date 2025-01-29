@@ -5,8 +5,9 @@ import 'package:fetch_data/res/app_url.dart';
 import 'package:http/http.dart' as http;
 import 'package:get/get.dart';
 
-class PhotosController extends GetxController {
-  List photosList = <PhotosModel>[].obs;
+class PostController extends GetxController {
+  var postList = <PostModel>[].obs;
+  var isLoading = true.obs;
 
   @override
   onInit() {
@@ -14,11 +15,15 @@ class PhotosController extends GetxController {
     super.onInit();
   }
 
-  Future<List<PhotosModel>?> fetchData() async {
+  Future<List<PostModel>?> fetchData() async {
     final response = await http.get(Uri.parse(AppUrl.baseUrl));
     var data = jsonDecode(response.body.toString());
-    for (int i = 0; i < data.length; i++) {
-      photosList.add(PhotosModel.fromJson(data[i]));
+    print(data);
+    print(postList);
+    if (response.statusCode == 200) {
+      for (int i = 0; i < data.length; i++) {
+        postList.add(PostModel.fromJson(data[i]));
+      }
     }
     return null;
   }
