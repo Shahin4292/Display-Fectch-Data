@@ -7,7 +7,6 @@ import 'package:get/get.dart';
 
 class PostController extends GetxController {
   var postList = <PostModel>[].obs;
-  var isLoading = true.obs;
 
   @override
   onInit() {
